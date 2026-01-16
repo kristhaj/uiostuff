@@ -22,6 +22,7 @@ public class Rutenett {
                 lagCelle(i, j);
             }
         }
+        kobleAlleCeller();
     }
 
     public Celle hentCelle(int rad, int kolonne) {
