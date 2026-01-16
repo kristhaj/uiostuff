@@ -137,12 +137,12 @@ class TestRutenett {
     public static void main(String[] arg) {
         System.out.println("** Test Rutenett **");
 
-        // testKonstruktoerUtenRutenett();
-        // testFyllMedTilfeldigeCeller();
-        // testHentCelle();
-        // testTegnRutenett();
-        // testSettNaboer();
-        // testKobleAlleCeller();
-        // testAntallLevende();
+        testKonstruktoerUtenRutenett();
+        testFyllMedTilfeldigeCeller();
+        testHentCelle();
+        testTegnRutenett();
+        testSettNaboer();
+        testKobleAlleCeller();
+        testAntallLevende();
     }
 }

@@ -31,17 +31,19 @@ class TestVerden {
             verden.oppdatering();
         }
         sjekk("oppdatering(): genNr == 3", verden.genNr == 3);
-
         System.out.println("oppdatering(): testet 3 generasjoner.");
         System.out.println("  Du maa selv sjekke om resultatet er korrekt.");
+
     }
 
     public static void main(String[] arg) {
         System.out.println("** Test Verden **");
 
-        // testKonstruktoer();
-        // testTegn();
-        // testOppdatering();
+        testKonstruktoer();
+        System.out.println();
+        testTegn();
+        System.out.println();
+        testOppdatering();
         System.out.println();
     }
 }
