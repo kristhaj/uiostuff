@@ -11,10 +11,7 @@
     </coordinates>
     <panel_attributes>Legemiddel
 --
--id: int
--navn: String
--pris: int
--virkestoff: double</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -27,7 +24,7 @@
     </coordinates>
     <panel_attributes>Narkotiske
 --
--styrke: int</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -40,7 +37,7 @@
     </coordinates>
     <panel_attributes>Vanedannende
 --
--vanedannende: int</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
