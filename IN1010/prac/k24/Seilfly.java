@@ -23,4 +23,13 @@ abstract class Seilfly {
     public int hentVingespenn() {
         return vingespenn;
     }
+
+    //4b
+    public int finnStørsteVingespenn() {
+        if (neste == null) {
+            return vingespenn;
+        } else {
+            return Math.max(vingespenn, neste.finnStørsteVingespenn());
+        }
+    }
 }

@@ -1,5 +1,5 @@
 // 2
 interface Motordrevet {
-    int trekkraft;
-    String motortype;
+    int trekkraft();
+    String motortype();
 }

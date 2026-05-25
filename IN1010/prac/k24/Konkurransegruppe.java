@@ -1,4 +1,7 @@
 // 3a
+
+import java.util.Iterator;
+
 class Konkurransegruppe implements Iterable<Seilfly> {
     Seilfly første, siste;
 
@@ -11,11 +14,11 @@ class Konkurransegruppe implements Iterable<Seilfly> {
     public void leggTil(Seilfly fly) {
         if (siste == null) {
             første = fly;
-            siste = fly
+            siste = fly;
         } else {
-            sisteFly.neste = fly;
-            fly.forrige = sisteFly;
-            sisteFly = fly;
+            siste.neste = fly;
+            fly.forrige = siste;
+            siste = fly;
         }
     }
 
@@ -23,7 +26,7 @@ class Konkurransegruppe implements Iterable<Seilfly> {
     public boolean erMed(String flyId) {
         Seilfly sjekkFly = første;
         while(sjekkFly != null) {
-            if (sjekkFly.hentId == flyId) {
+            if (sjekkFly.hentId() == flyId) {
                 return true;
             }
             sjekkFly = sjekkFly.neste;
@@ -32,10 +35,10 @@ class Konkurransegruppe implements Iterable<Seilfly> {
     }
 
     //3d
-    public taUt(String flyId) {
+    public Seilfly taUt(String flyId) {
         Seilfly sjekkFly = første;
         while(sjekkFly != null) {
-            if (sjekkFly.hentId == flyId) {
+            if (sjekkFly.hentId() == flyId) {
                 // eneste fly i gruppen
                 if (sjekkFly == første && sjekkFly == siste) {
                     første = null;
@@ -45,7 +48,7 @@ class Konkurransegruppe implements Iterable<Seilfly> {
                     første = første.neste;
                     første.forrige = null;
                 // siste men ikke eneste fly i gruppen
-                } else if (sjekkfly == siste) {
+                } else if (sjekkFly == siste) {
                     siste = siste.forrige;
                     siste.neste = null;
                 // i gruppen, men ikke først eller sist
@@ -54,7 +57,7 @@ class Konkurransegruppe implements Iterable<Seilfly> {
                     sjekkFly.neste.forrige = sjekkFly.forrige;
                 }
                 sjekkFly.forrige = null;
-                sjekkFly.neste = null
+                sjekkFly.neste = null;
                 return sjekkFly;
             }
         }
@@ -85,7 +88,7 @@ class Konkurransegruppe implements Iterable<Seilfly> {
 
     //3f
     public Seilfly[] hentEkteSeilfly() {
-        int antallEkteSeilfly;
+        int antallEkteSeilfly = 0;
         for (Seilfly sf: this) {
             if(sf instanceof EkteSeilfly) {
                 antallEkteSeilfly++;
@@ -104,23 +107,35 @@ class Konkurransegruppe implements Iterable<Seilfly> {
     //4a
     public int besteGlidetall() {
         if (siste == null) {
-            return null;
+            return 0;
         } else {
             int bestGlidetall = 0;
             for (Seilfly sf: this) {
-                best = Math.max(sf.hentGlidetall, besteGlidetall);
+                bestGlidetall = Math.max(sf.hentGlidetall(), bestGlidetall);
             }
-            return besteGlidetall;
+            return bestGlidetall;
         }
     }
 
     //4b
     public int størstVingespenn() {
-        if (siste == null) {
-            return null;
+        if (første == null) {
+            return 0;
         } else {
-            
+            return første.finnStørsteVingespenn();
         }
+    }
+
+    //4c
+    public int[] histogramSpennvidde() {
+        int[] histogram = new int[100];
+        for(Seilfly sf: this) {
+            int vingespenn = sf.hentVingespenn();
+            if (vingespenn >= 10 && vingespenn <= 99) {
+                ++histogram[vingespenn];
+            }
+        }
+        return histogram;
     }
 
 

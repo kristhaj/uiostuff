@@ -1,19 +1,19 @@
 // 2
-class MotorSeilfly implements Motordrevet extends Seilfly {
+class MotorSeilfly extends Seilfly implements Motordrevet {
     final int minTrekkraft;
     final String minMotortype;
 
     MotorSeilfly(String id, int glidetall, int vingespenn, int trekkraft, String motortype) {
         super(id,glidetall,vingespenn);
-        this.trekkraft = trekkraft;
-        this.motortype = motortype;
+        minTrekkraft = trekkraft;
+        minMotortype = motortype;
     }
 
     public int trekkraft() {
-        return trekkraft;
+        return minTrekkraft;
     }
 
     public String motortype() {
-        return motortype;
+        return minMotortype;
     }
 }
